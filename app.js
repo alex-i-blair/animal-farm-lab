@@ -15,15 +15,23 @@ const horseSound = document.getElementById('horse-sound');
 const horseImage = document.getElementById('horse-image');
 const clickedOnEl = document.getElementById('animal-display');
 
+const sounds = {
+  Cat: catSound,
+  Dog: dogSound,
+  Horse: horseSound
+};
+
+function doTheAnimalThings(animalType) {
+  sounds[animalType].play();
+  clickedOnEl.textContext = animalType;
+}
+
 catImage.addEventListener('click', () => {
-  catSound.play();
-  clickedOnEl.textContent = 'Cat';
+  doTheAnimalThings('Cat');
 });
   dogImage.addEventListener('click', () => {
-  dogSound.play();
-clickedOnEl.textContent = 'Dog';
+  doTheAnimalThings('Dog');
 });
 horseImage.addEventListener('click', () => {
-  horseSound.play();
-  clickedOnEl.textContent = 'Horse';
+  doTheAnimalThings('Horse');
 });
